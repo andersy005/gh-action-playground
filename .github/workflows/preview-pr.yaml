@@ -21,7 +21,7 @@ jobs:
           echo "comment_message=This pull request is being automatically built with GitHub Action + Netlify. To see the status of your deployment, click below." >> $GITHUB_ENV
 
       - name: Find Pull Request
-        uses: actions/github-script@v4
+        uses: actions/github-script@v6
         id: find-pull-request
         with:
           script: |

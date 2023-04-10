@@ -73,7 +73,7 @@ jobs:
         if: |
           github.event.workflow_run.conclusion != 'success'
           && steps.fc.outputs.comment-id == ''
-        uses: peter-evans/create-or-update-comment@v1
+        uses: peter-evans/create-or-update-comment@v3
         with:
           issue-number: ${{ steps.find-pull-request.outputs.number }}
           body: |
@@ -85,7 +85,7 @@ jobs:
         if: |
           github.event.workflow_run.conclusion != 'success'
           && steps.fc.outputs.comment-id != ''
-        uses: peter-evans/create-or-update-comment@v1
+        uses: peter-evans/create-or-update-comment@v3
         with:
           token: ${{ steps.generate-token.outputs.token }}
           comment-id: ${{ steps.fc.outputs.comment-id }}
@@ -99,7 +99,7 @@ jobs:
         if: |
           github.event.workflow_run.conclusion == 'success'
           && steps.fc.outputs.comment-id != ''
-        uses: peter-evans/create-or-update-comment@v1
+        uses: peter-evans/create-or-update-comment@v3
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}
           edit-mode: replace
